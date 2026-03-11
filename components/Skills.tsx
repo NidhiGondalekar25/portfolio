@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { data } from "@/data/resume";
 import SectionHeader from "./SectionHeader";
@@ -63,7 +62,6 @@ export default function Skills() {
 			style={{ padding: "80px 56px", maxWidth: "1200px", margin: "0 auto" }}
 		>
 			<SectionHeader num="01" title="Skills" />
-
 			<motion.div
 				variants={fadeUpStagger}
 				initial="hidden"
@@ -75,74 +73,74 @@ export default function Skills() {
 					gap: "16px",
 				}}
 			>
-				{data.skills.map((group, i) => (
+				{data.skills.map((group) => (
 					<motion.div
 						key={group.title}
 						variants={fadeUpChild}
 						whileHover={{ y: -4, scale: 1.01 }}
-						style={{
-							background: "var(--surface)",
-							border: "1px solid var(--border)",
-							borderRadius: "6px",
-							padding: "28px",
-							transition: "border-color 0.2s, box-shadow 0.2s",
-						}}
-						onMouseEnter={(e) => {
-							e.currentTarget.style.borderColor = "rgba(160,212,240,0.4)";
-							e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.06)";
-						}}
-						onMouseLeave={(e) => {
-							e.currentTarget.style.borderColor = "var(--border)";
-							e.currentTarget.style.boxShadow = "none";
-						}}
 					>
-						{/* Category label */}
 						<div
 							style={{
-								fontSize: "10px",
-								letterSpacing: "0.15em",
-								textTransform: "uppercase",
-								color: "var(--accent-g)",
-								marginBottom: "16px",
+								background: "var(--surface)",
+								border: "1px solid var(--border)",
+								borderRadius: "6px",
+								padding: "28px",
+								transition: "border-color 0.2s, box-shadow 0.2s",
+							}}
+							onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
+								e.currentTarget.style.borderColor = "rgba(160,212,240,0.4)";
+								e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.06)";
+							}}
+							onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {
+								e.currentTarget.style.borderColor = "var(--border)";
+								e.currentTarget.style.boxShadow = "none";
 							}}
 						>
-							{group.title}
-						</div>
-
-						{/* Tags with icons */}
-						<div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-							{group.tags.map((tag) => {
-								const match = iconMap[tag];
-								const Icon = match?.icon;
-								return (
-									<span
-										key={tag}
-										style={{
-											display: "inline-flex",
-											alignItems: "center",
-											gap: "6px",
-											fontSize: "11px",
-											padding: "5px 10px",
-											background: "var(--surface2)",
-											border: "1px solid var(--border)",
-											borderRadius: "4px",
-											color: "var(--text)",
-											letterSpacing: "0.04em",
-										}}
-									>
-										{Icon && (
-											<Icon
-												style={{
-													fontSize: "13px",
-													color: match.color,
-													flexShrink: 0,
-												}}
-											/>
-										)}
-										{tag}
-									</span>
-								);
-							})}
+							<div
+								style={{
+									fontSize: "10px",
+									letterSpacing: "0.15em",
+									textTransform: "uppercase",
+									color: "var(--accent-g)",
+									marginBottom: "16px",
+								}}
+							>
+								{group.title}
+							</div>
+							<div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+								{group.tags.map((tag) => {
+									const match = iconMap[tag];
+									const Icon = match?.icon;
+									return (
+										<span
+											key={tag}
+											style={{
+												display: "inline-flex",
+												alignItems: "center",
+												gap: "6px",
+												fontSize: "11px",
+												padding: "5px 10px",
+												background: "var(--surface2)",
+												border: "1px solid var(--border)",
+												borderRadius: "4px",
+												color: "var(--text)",
+												letterSpacing: "0.04em",
+											}}
+										>
+											{Icon && (
+												<Icon
+													style={{
+														fontSize: "13px",
+														color: match.color,
+														flexShrink: 0,
+													}}
+												/>
+											)}
+											{tag}
+										</span>
+									);
+								})}
+							</div>
 						</div>
 					</motion.div>
 				))}

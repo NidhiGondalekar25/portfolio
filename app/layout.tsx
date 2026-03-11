@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fraunces.variable} ${dmMono.variable} font-[family-name:var(--font-dm-mono)]`}>
+      <body className={`${fraunces.variable} ${dmMono.variable} font-(family-name:--font-dm-mono)`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

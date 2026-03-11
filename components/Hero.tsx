@@ -1,22 +1,20 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { data } from "@/data/resume";
 
-const fadeUp = {
+const fadeUp: Variants = {
 	hidden: { opacity: 0, y: 30 },
-	visible: (i = 0) => ({
+	visible: {
 		opacity: 1,
 		y: 0,
-		transition: { duration: 0.7, delay: i * 0.15, ease: "easeOut" },
-	}),
+		transition: { duration: 0.7, ease: "easeOut" },
+	},
 };
 
 export default function Hero() {
 	return (
 		<section
 			style={{
-				// minHeight: "100vh",
 				display: "grid",
 				gridTemplateColumns: "1fr 1fr",
 				gap: "48px",
@@ -39,7 +37,6 @@ export default function Hero() {
 					pointerEvents: "none",
 				}}
 			/>
-
 			{/* Glow */}
 			<div
 				style={{
@@ -59,10 +56,10 @@ export default function Hero() {
 			{/* Left: text */}
 			<div style={{ position: "relative", zIndex: 1 }}>
 				<motion.div
-					custom={0}
 					variants={fadeUp}
 					initial="hidden"
 					animate="visible"
+					transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
 					style={{
 						display: "flex",
 						alignItems: "center",
@@ -91,10 +88,10 @@ export default function Hero() {
 				</motion.div>
 
 				<motion.h1
-					custom={1}
 					variants={fadeUp}
 					initial="hidden"
 					animate="visible"
+					transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
 					style={{
 						fontFamily: "var(--font-fraunces)",
 						fontSize: "clamp(52px, 6vw, 88px)",
@@ -113,10 +110,10 @@ export default function Hero() {
 				</motion.h1>
 
 				<motion.p
-					custom={2}
 					variants={fadeUp}
 					initial="hidden"
 					animate="visible"
+					transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
 					style={{
 						fontSize: "13px",
 						lineHeight: 1.8,
@@ -129,10 +126,10 @@ export default function Hero() {
 				</motion.p>
 
 				<motion.div
-					custom={3}
 					variants={fadeUp}
 					initial="hidden"
 					animate="visible"
+					transition={{ duration: 0.7, ease: "easeOut", delay: 0.45 }}
 					style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}
 				>
 					<a
@@ -149,21 +146,17 @@ export default function Hero() {
 							color: "var(--bg)",
 							transition: "all 0.2s",
 						}}
-						onMouseEnter={(e) => {
-							(e.currentTarget as HTMLAnchorElement).style.background =
-								"transparent";
-							(e.currentTarget as HTMLAnchorElement).style.color =
-								"var(--accent-g)";
+						onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+							e.currentTarget.style.background = "transparent";
+							e.currentTarget.style.color = "var(--accent-g)";
 						}}
-						onMouseLeave={(e) => {
-							(e.currentTarget as HTMLAnchorElement).style.background =
-								"var(--accent-g)";
-							(e.currentTarget as HTMLAnchorElement).style.color = "var(--bg)";
+						onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+							e.currentTarget.style.background = "var(--accent-g)";
+							e.currentTarget.style.color = "var(--bg)";
 						}}
 					>
 						Get in Touch
 					</a>
-
 					<a
 						href="#experience"
 						onClick={(e) => {
@@ -183,22 +176,17 @@ export default function Hero() {
 							color: "var(--text)",
 							transition: "all 0.2s",
 						}}
-						onMouseEnter={(e) => {
-							(e.currentTarget as HTMLAnchorElement).style.borderColor =
-								"var(--accent-g)";
-							(e.currentTarget as HTMLAnchorElement).style.color =
-								"var(--accent-g)";
+						onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+							e.currentTarget.style.borderColor = "var(--accent-g)";
+							e.currentTarget.style.color = "var(--accent-g)";
 						}}
-						onMouseLeave={(e) => {
-							(e.currentTarget as HTMLAnchorElement).style.borderColor =
-								"var(--border)";
-							(e.currentTarget as HTMLAnchorElement).style.color =
-								"var(--text)";
+						onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+							e.currentTarget.style.borderColor = "var(--border)";
+							e.currentTarget.style.color = "var(--text)";
 						}}
 					>
 						View Work ↓
 					</a>
-
 					<a
 						href="/resume.pdf"
 						download
@@ -213,17 +201,13 @@ export default function Hero() {
 							color: "var(--muted)",
 							transition: "all 0.2s",
 						}}
-						onMouseEnter={(e) => {
-							(e.currentTarget as HTMLAnchorElement).style.borderColor =
-								"var(--accent-b)";
-							(e.currentTarget as HTMLAnchorElement).style.color =
-								"var(--accent-b)";
+						onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+							e.currentTarget.style.borderColor = "var(--accent-b)";
+							e.currentTarget.style.color = "var(--accent-b)";
 						}}
-						onMouseLeave={(e) => {
-							(e.currentTarget as HTMLAnchorElement).style.borderColor =
-								"var(--border)";
-							(e.currentTarget as HTMLAnchorElement).style.color =
-								"var(--muted)";
+						onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+							e.currentTarget.style.borderColor = "var(--border)";
+							e.currentTarget.style.color = "var(--muted)";
 						}}
 					>
 						Resume ↓
@@ -233,10 +217,10 @@ export default function Hero() {
 
 			{/* Right: stats */}
 			<motion.div
-				custom={2}
 				variants={fadeUp}
 				initial="hidden"
 				animate="visible"
+				transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
 				style={{
 					position: "relative",
 					zIndex: 1,
@@ -250,53 +234,56 @@ export default function Hero() {
 						key={i}
 						whileHover={{ x: 4 }}
 						transition={{ type: "spring", stiffness: 300 }}
-						style={{
-							background: "var(--surface)",
-							border: "1px solid var(--border)",
-							padding: "28px",
-							display: "flex",
-							alignItems: "flex-start",
-							gap: "20px",
-							transition: "border-color 0.2s",
-						}}
-						onMouseEnter={(e) =>
-							(e.currentTarget.style.borderColor = "rgba(160,212,240,0.3)")
-						}
-						onMouseLeave={(e) =>
-							(e.currentTarget.style.borderColor = "var(--border)")
-						}
 					>
 						<div
 							style={{
-								fontFamily: "var(--font-fraunces)",
-								fontSize: "48px",
-								fontWeight: 300,
-								lineHeight: 1,
-								color: "var(--accent-g)",
-								minWidth: "80px",
+								background: "var(--surface)",
+								border: "1px solid var(--border)",
+								padding: "28px",
+								display: "flex",
+								alignItems: "flex-start",
+								gap: "20px",
+								transition: "border-color 0.2s",
 							}}
+							onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) =>
+								(e.currentTarget.style.borderColor = "rgba(160,212,240,0.3)")
+							}
+							onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) =>
+								(e.currentTarget.style.borderColor = "var(--border)")
+							}
 						>
-							{s.num}
-						</div>
-						<div>
 							<div
 								style={{
-									fontSize: "11px",
-									letterSpacing: "0.1em",
-									textTransform: "uppercase",
-									color: "var(--muted)",
+									fontFamily: "var(--font-fraunces)",
+									fontSize: "48px",
+									fontWeight: 300,
+									lineHeight: 1,
+									color: "var(--accent-g)",
+									minWidth: "80px",
 								}}
 							>
-								{s.label}
+								{s.num}
 							</div>
-							<div
-								style={{
-									fontSize: "12px",
-									color: "var(--text)",
-									marginTop: "4px",
-								}}
-							>
-								{s.desc}
+							<div>
+								<div
+									style={{
+										fontSize: "11px",
+										letterSpacing: "0.1em",
+										textTransform: "uppercase",
+										color: "var(--muted)",
+									}}
+								>
+									{s.label}
+								</div>
+								<div
+									style={{
+										fontSize: "12px",
+										color: "var(--text)",
+										marginTop: "4px",
+									}}
+								>
+									{s.desc}
+								</div>
 							</div>
 						</div>
 					</motion.div>
