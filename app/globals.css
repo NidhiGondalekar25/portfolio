@@ -48,3 +48,55 @@
   .bg-surface2 { background-color: var(--surface2); }
   .border-theme { border-color: var(--border); }
 }
+
+@media (max-width: 768px) {
+  /* Reduce section spacing */
+  section {
+    padding: 40px 20px !important;
+  }
+
+  /* Hero */
+  section[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    padding: 80px 20px 40px !important;
+    gap: 24px !important;
+  }
+
+  /* All 3-column grids → 1 column */
+  [style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* All 2-column grids → 1 column */
+  [style*="1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce card padding */
+  [style*="padding: 36px 40px"] {
+    padding: 20px !important;
+  }
+
+  [style*="padding: 32px"] {
+    padding: 20px !important;
+  }
+
+  [style*="padding: 28px"] {
+    padding: 20px !important;
+  }
+
+  /* Reduce section header margin */
+  [style*="marginBottom: 48px"] {
+    margin-bottom: 24px !important;
+  }
+
+  /* Footer */
+  [style*="padding: 80px 56px"] {
+    padding: 40px 20px !important;
+  }
+
+  /* Navbar */
+  nav {
+    padding: 16px 20px !important;
+  }
+}
