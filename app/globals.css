@@ -100,3 +100,7 @@
     padding: 16px 20px !important;
   }
 }
+
+section {
+  scroll-margin-top: 80px;
+}
